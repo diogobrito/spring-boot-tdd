@@ -6,7 +6,7 @@ import com.example.demo.repository.PessoaRepository;
 import com.example.demo.servico.exception.TelefoneNaoEncontradoException;
 import com.example.demo.servico.exception.UnicidadeCpfExeception;
 import com.example.demo.servico.exception.UnicidadeTelefoneExcepiton;
-import com.example.demo.servico.impl.PessoaServeImpl;
+import com.example.demo.servico.impl.PessoaServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,7 +41,7 @@ public class PessoaServiceTest {
     @Before
     public void setUp() throws Exception {
 
-        sut = new PessoaServeImpl(pessoaRepository);
+        sut = new PessoaServiceImpl(pessoaRepository);
 
         pessoa = new Pessoa();
         pessoa.setNome(NOME);

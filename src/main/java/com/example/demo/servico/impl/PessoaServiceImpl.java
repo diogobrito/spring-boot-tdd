@@ -10,10 +10,10 @@ import com.example.demo.servico.exception.UnicidadeTelefoneExcepiton;
 
 import java.util.Optional;
 
-public class PessoaServeImpl implements PessoaService {
+public class PessoaServiceImpl implements PessoaService {
     private final PessoaRepository pessoaRepositoy;
 
-    public PessoaServeImpl(PessoaRepository pessoaRepository) {
+    public PessoaServiceImpl(PessoaRepository pessoaRepository) {
         this.pessoaRepositoy = pessoaRepository;
     }
 
