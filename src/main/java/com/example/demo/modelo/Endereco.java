@@ -1,6 +1,14 @@
 package com.example.demo.modelo;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "endereco")
 public class Endereco {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codigo;
 
     private String logradouro;
     private Integer numero;
@@ -8,6 +16,10 @@ public class Endereco {
     private String bairro;
     private String cidade;
     private String estado;
+
+    @ManyToOne
+    @JoinColumn(name = "codigo_pessoa")
+    private Pessoa pessoa;
 
     public String getLogradouro() {
         return logradouro;
@@ -55,5 +67,36 @@ public class Endereco {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Endereco endereco = (Endereco) o;
+
+        return codigo != null ? codigo.equals(endereco.codigo) : endereco.codigo == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return codigo != null ? codigo.hashCode() : 0;
     }
 }
