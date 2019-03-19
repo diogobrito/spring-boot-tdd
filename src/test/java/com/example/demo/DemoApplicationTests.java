@@ -1,6 +1,7 @@
 package com.example.demo;
 
-import org.junit.Test;
+import io.restassured.RestAssured;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,11 +19,8 @@ public class DemoApplicationTests {
 	@Value("${local.server.port}")
 	protected int porta;
 
-
-
-	@Test
-	public void contextLoads() {
-		System.out.println(porta);
+	@Before
+	public void setUp() throws Exception {
+		RestAssured.port = porta;
 	}
-
 }
