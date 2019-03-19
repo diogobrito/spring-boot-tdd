@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class PessoaResourceTest  {
+public class PessoaResourceTest extends DemoApplicationTests {
 
     @Test
     public void deve_procurar_pessoa_pelo_ddd_e_numero_de_telefone() {
